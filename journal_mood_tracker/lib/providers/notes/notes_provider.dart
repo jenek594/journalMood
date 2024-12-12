@@ -14,6 +14,7 @@ class NotesProvider with ChangeNotifier{
     notifyListeners();
   }
 
+
   insert({required Note note}) async {
     await NotesRepository.insert(note: note);  
     getNotes();

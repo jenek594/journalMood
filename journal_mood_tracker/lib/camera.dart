@@ -13,7 +13,10 @@ import 'package:image_picker/image_picker.dart';
 
 
 class Imagecontainer extends StatefulWidget {
-  const Imagecontainer({super.key});
+final Function(XFile?) onImageSelected;
+
+  const Imagecontainer({super.key, required this.onImageSelected});
+
 
   @override
   State<Imagecontainer> createState() => _ImagecontainerState();
@@ -47,8 +50,8 @@ class _ImagecontainerState extends State<Imagecontainer> {
           try {
             final XFile pickedFile;
             final XFile? media = await _picker.pickMedia(
-              maxWidth: 200,
-              maxHeight: 200,
+              maxWidth: 300,
+              maxHeight: 300,
               imageQuality: 100,
             );
             if (media != null) {
@@ -66,13 +69,14 @@ class _ImagecontainerState extends State<Imagecontainer> {
             try {
               final XFile? pickedFile = await _picker.pickImage(
                 source: source,
-                maxWidth: 200,
-                maxHeight: 200,
+                maxWidth: 300,
+                maxHeight: 300,
                 imageQuality: 100,
               );
               setState(() {
                 _setImageFileListFromFile(pickedFile!);
               });
+              widget.onImageSelected(pickedFile);
             } catch (e) {
               setState(() {
                 _pickImageError = e;
@@ -159,7 +163,7 @@ class _ImagecontainerState extends State<Imagecontainer> {
             Align(
             alignment: Alignment.centerLeft,
              child: Container(
-              width: MediaQuery.sizeOf(context).width / 2,
+              //width: MediaQuery.sizeOf(context).width / 2,
               decoration: BoxDecoration(
                 color: const Color.fromARGB(255, 218, 218, 218),
                 borderRadius: BorderRadius.circular(15),
@@ -170,7 +174,7 @@ class _ImagecontainerState extends State<Imagecontainer> {
                 )
               ),
               margin: EdgeInsets.symmetric(vertical: 10),
-              height: 200,
+              //height: 200,
               padding: EdgeInsets.all(10),
               child: !kIsWeb && defaultTargetPlatform == TargetPlatform.android
                   ? FutureBuilder<void>(

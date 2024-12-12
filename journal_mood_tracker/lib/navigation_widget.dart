@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:journal_mood_tracker/calendar_widget.dart';
 import 'package:journal_mood_tracker/screens/home/home_screen.dart';
 
 
@@ -13,11 +14,9 @@ class NavigationWidget extends StatefulWidget {
 class _NavigationWidgetState
     extends State<NavigationWidget> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-      TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
   static const List<Widget> _widgetOptions = <Widget>[
     HomeScreen(),
-    Center(child: Text('Календарь', style: optionStyle,),)
+    MyCalendar()
   ];
 
   void _onItemTapped(int index) {

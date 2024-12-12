@@ -20,6 +20,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => NotesProvider())
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'MyDiary',
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),

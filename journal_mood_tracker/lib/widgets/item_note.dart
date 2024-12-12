@@ -45,15 +45,18 @@ class ItemNote extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Expanded(
-                        child: Text(
-                          note.title, 
-                          style: Theme.of(context).textTheme.titleMedium, maxLines: 1, overflow: TextOverflow.ellipsis,)
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Expanded(
+                          child: Text(
+                            note.title, 
+                            style: Theme.of(context).textTheme.titleMedium, maxLines: 1, overflow: TextOverflow.ellipsis,)
+                        ),
+                      ],
+                    ),
                   ),
                   Text(
                     note.description, 
@@ -67,7 +70,7 @@ class ItemNote extends StatelessWidget {
             
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Text(note.moodIndex.toString()),
+              child: Image.asset('assets/mood_${note.moodIndex}.png'),
             )
 
           ],

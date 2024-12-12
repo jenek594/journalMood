@@ -12,7 +12,7 @@ class MyTimelineWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 110,
+      height: 120,
       child: TimelineTile(
         alignment: TimelineAlign.start,
         isFirst: isFirst,
@@ -22,7 +22,7 @@ class MyTimelineWidget extends StatelessWidget {
           width: 5
         ),
         endChild: Padding(
-          padding: const EdgeInsets.only(left: 5),
+          padding: const EdgeInsets.only(left: 10),
           child: ItemNote(note: note),
         ),
       ),
